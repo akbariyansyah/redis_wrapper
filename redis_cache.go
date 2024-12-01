@@ -71,6 +71,10 @@ func (c *redisCache) Expire(ctx context.Context, key string, expiration time.Dur
 	return c.client.Expire(ctx, key, expiration).Err()
 }
 
+func (c *redisCache) SetNX(ctx context.Context, key string, value interface{}, expiration time.Duration) (bool, error) {
+	return c.client.SetNX(ctx, key, value, expiration).Result()
+}
+
 func (c *redisCache) Close() error {
 	return c.client.Close()
 }

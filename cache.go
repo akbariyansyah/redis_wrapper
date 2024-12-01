@@ -24,6 +24,7 @@ type Cache interface {
 	Exist(ctx context.Context, key string) (int64, error)
 	IncrBy(ctx context.Context, key string, value int64) (int64, error)
 	DecrBy(ctx context.Context, key string, value int64) (int64, error)
+	SetNX(ctx context.Context, key string, value interface{}, expiration time.Duration) (bool, error)
 	Expire(ctx context.Context, key string, expiration time.Duration) error
 	Close() error
 }

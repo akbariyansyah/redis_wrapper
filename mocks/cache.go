@@ -183,3 +183,18 @@ func (mr *MockCacheMockRecorder) Put(ctx, key, value, expiration interface{}) *g
 	mr.mock.ctrl.T.Helper()
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "Put", reflect.TypeOf((*MockCache)(nil).Put), ctx, key, value, expiration)
 }
+
+// SetNX mocks base method.
+func (m *MockCache) SetNX(ctx context.Context, key string, value interface{}, expiration time.Duration) (bool, error) {
+	m.ctrl.T.Helper()
+	ret := m.ctrl.Call(m, "SetNX", ctx, key, value, expiration)
+	ret0, _ := ret[0].(bool)
+	ret1, _ := ret[1].(error)
+	return ret0, ret1
+}
+
+// SetNX indicates an expected call of SetNX.
+func (mr *MockCacheMockRecorder) SetNX(ctx, key, value, expiration interface{}) *gomock.Call {
+	mr.mock.ctrl.T.Helper()
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "SetNX", reflect.TypeOf((*MockCache)(nil).SetNX), ctx, key, value, expiration)
+}
