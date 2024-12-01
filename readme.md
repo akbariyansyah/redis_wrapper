@@ -1,0 +1,2 @@
+# Redis wrapper for Go
+
